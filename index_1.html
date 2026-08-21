@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCBA Exam Prep — Practice Questions</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page:           #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --gridline:       #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --series-1:       #2a78d6;
+    --seq-100:        #cde2fb;
+    --seq-450:        #2a78d6;
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --critical:       #d03b3b;
+    --card-radius:    14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page:           #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --gridline:       #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --series-1:       #3987e5;
+      --seq-100:        #184f95;
+      --seq-450:        #3987e5;
+      --good:           #0ca30c;
+      --warning:        #fab219;
+      --critical:       #e66767;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+  header.app-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  header.app-header h1 {
+    font-size: 1.5rem;
+    margin: 0 0 4px;
+  }
+  header.app-header p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    margin: 0;
+  }
+  .tab-nav {
+    display: flex;
+    gap: 6px;
+    background: var(--gridline);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 20px;
+  }
+  .tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-radius: 9px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+  .tab-btn.active {
+    background: var(--surface-1);
+    color: var(--series-1);
+    box-shadow: 0 1px 2px var(--border);
+  }
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  h2 { font-size: 1.1rem; margin: 0 0 14px; }
+  .card-head h2 { margin-bottom: 0; }
+  .link-btn {
+    background: none;
+    border: none;
+    color: var(--series-1);
+    cursor: pointer;
+    font-size: 0.83rem;
+    padding: 0;
+    text-decoration: underline;
+    font-family: inherit;
+  }
+  .card-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+  }
+  .domain-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .domain-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .domain-row:hover { background: var(--seq-100); border-color: var(--series-1); }
+  .domain-row input { width: 16px; height: 16px; accent-color: var(--series-1); flex-shrink: 0; }
+  .domain-row .dname { flex: 1; }
+  .domain-row .dcount { color: var(--text-muted); font-size: 0.8rem; }
+  .select-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 0.85rem;
+  }
+  .select-actions button {
+    background: none;
+    border: none;
+    color: var(--series-1);
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0;
+    text-decoration: underline;
+    font-family: inherit;
+  }
+  .row-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    font-size: 0.9rem;
+  }
+  select {
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface-1);
+    color: var(--text-primary);
+  }
+  button.primary {
+    width: 100%;
+    background: var(--series-1);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button.primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  button.secondary {
+    width: 100%;
+    background: transparent;
+    color: var(--series-1);
+    border: 1.5px solid var(--series-1);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 10px;
+  }
+  .callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    background: color-mix(in srgb, var(--warning) 14%, var(--surface-1));
+    border: 1px solid var(--warning);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .callout-text { font-size: 0.88rem; line-height: 1.4; }
+  .callout-text strong { display: block; font-size: 0.95rem; margin-bottom: 2px; }
+  .callout button {
+    background: var(--warning);
+    color: #1a1200;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .progress-bar-track {
+    height: 6px;
+    background: var(--gridline);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--series-1);
+    border-radius: 3px;
+    transition: width 0.25s ease;
+  }
+  .quiz-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .tag-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .domain-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--series-1);
+    background: var(--seq-100);
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .diff-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .diff-badge.diff-1 { color: var(--good); background: color-mix(in srgb, var(--good) 14%, var(--surface-1)); }
+  .diff-badge.diff-2 { color: #8a6300; background: color-mix(in srgb, var(--warning) 22%, var(--surface-1)); }
+  .diff-badge.diff-3 { color: var(--critical); background: color-mix(in srgb, var(--critical) 14%, var(--surface-1)); }
+  .question-text {
+    font-size: 1.08rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    text-align: left;
+    padding: 13px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.94rem;
+    cursor: pointer;
+    line-height: 1.4;
+    display: flex;
+    gap: 10px;
+  }
+  .option:hover:not(:disabled) { border-color: var(--series-1); background: var(--seq-100); }
+  .option:disabled { cursor: default; }
+  .option .letter {
+    font-weight: 700;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+  .option.correct {
+    border-color: var(--good);
+    background: color-mix(in srgb, var(--good) 12%, var(--surface-1));
+  }
+  .option.correct .letter { color: var(--good); }
+  .option.incorrect {
+    border-color: var(--critical);
+    background: color-mix(in srgb, var(--critical) 12%, var(--surface-1));
+  }
+  .option.incorrect .letter { color: var(--critical); }
+  .feedback {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .feedback.correct-fb {
+    background: color-mix(in srgb, var(--good) 10%, var(--surface-1));
+    border: 1px solid var(--good);
+  }
+  .feedback.incorrect-fb {
+    background: color-mix(in srgb, var(--critical) 10%, var(--surface-1));
+    border: 1px solid var(--critical);
+  }
+  .feedback .fb-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .fb-title.good-text { color: var(--good); }
+  .fb-title.bad-text { color: var(--critical); }
+  .feedback p { margin: 0; color: var(--text-secondary); }
+  .nav-row { margin-top: 18px; }
+  .score-hero {
+    text-align: center;
+    padding: 8px 0 20px;
+  }
+  .score-hero .pct {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--series-1);
+    line-height: 1;
+  }
+  .score-hero .sub {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 6px;
+  }
+  .breakdown-row { margin-bottom: 12px; }
+  .breakdown-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+  .breakdown-label .dname { color: var(--text-primary); }
+  .breakdown-label .dpct { color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+  .bar-track {
+    height: 10px;
+    background: var(--gridline);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: var(--seq-450);
+  }
+  .review-item { border-top: 1px solid var(--gridline); padding: 16px 0; }
+  .review-item:first-child { border-top: none; padding-top: 0; }
+  .review-q { font-size: 0.92rem; margin-bottom: 8px; }
+  .review-ans { font-size: 0.85rem; margin-bottom: 4px; }
+  .review-ans.wrong { color: var(--critical); }
+  .review-ans.right { color: var(--good); }
+  .review-exp { font-size: 0.85rem; color: var(--text-secondary); margin-top: 6px; }
+  .hidden { display: none !important; }
+  footer.note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+
+  /* --- Mastery dashboard (full, detailed) --- */
+  .mastery-row { margin-bottom: 16px; }
+  .mastery-row:last-child { margin-bottom: 0; }
+  .mastery-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+  }
+  .mastery-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .mastery-dname { color: var(--text-primary); font-weight: 500; }
+  .mastery-tier { color: var(--text-secondary); font-size: 0.78rem; }
+  .mastery-pct {
+    margin-left: auto;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.8rem;
+  }
+  .mastery-sub {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* --- Mastery strip (compact, shown live during quiz) --- */
+  .mastery-strip-wrap { margin-bottom: 18px; }
+  .mastery-strip-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .mastery-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 5px;
+    height: 62px;
+    padding: 8px 8px 6px;
+    background: var(--page);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .mastery-strip-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .mastery-strip-bar-track {
+    width: 100%;
+    max-width: 18px;
+    height: 34px;
+    background: var(--gridline);
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .mastery-strip-bar-fill {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    transition: height 0.3s ease, background 0.3s ease;
+  }
+  .mastery-strip-letter {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .mastery-strip-col.active .mastery-strip-letter { color: var(--series-1); }
+  .reset-row { margin-top: 14px; text-align: right; }
+
+  /* --- Auth screen --- */
+  .auth-wrap { max-width: 420px; margin: 40px auto 0; }
+  .auth-toggle {
+    display: flex;
+    gap: 6px;
+    background: var(--gridline);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 20px;
+  }
+  .auth-toggle button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-radius: 9px;
+    padding: 9px 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+  .auth-toggle button.active {
+    background: var(--surface-1);
+    color: var(--series-1);
+    box-shadow: 0 1px 2px var(--border);
+  }
+  .field-group { margin-bottom: 14px; }
+  .field-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+  }
+  .field-group input {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.94rem;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface-1);
+    color: var(--text-primary);
+  }
+  .field-group input:focus { outline: 2px solid var(--series-1); outline-offset: 1px; }
+  .auth-error {
+    background: color-mix(in srgb, var(--critical) 10%, var(--surface-1));
+    border: 1px solid var(--critical);
+    color: var(--critical);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+  .auth-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 14px 0 0;
+  }
+  .guest-row { text-align: center; margin-top: 16px; }
+  .guest-row button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    text-decoration: underline;
+    font-size: 0.88rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button.primary:disabled.loading { opacity: 0.7; }
+
+  /* --- Account bar --- */
+  .account-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+  .account-bar .account-status { color: var(--text-secondary); }
+  .account-bar .account-status strong { color: var(--text-primary); }
+  .account-bar button {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 6px 11px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--series-1);
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="app-header">
+    <h1>BCBA Exam Prep</h1>
+    <p>Practice multiple-choice questions aligned to the BACB Test Content Outline (6th ed.)</p>
+  </header>
+
+  <!-- AUTH SCREEN -->
+  <div id="auth-screen">
+    <div class="card auth-wrap">
+      <div class="auth-toggle">
+        <button class="active" id="auth-toggle-signup" type="button">Sign up</button>
+        <button id="auth-toggle-login" type="button">Log in</button>
+      </div>
+
+      <div id="auth-error" class="auth-error hidden"></div>
+
+      <form id="auth-form">
+        <div class="field-group" id="field-display-name">
+          <label for="auth-display-name">Display name</label>
+          <input type="text" id="auth-display-name" autocomplete="nickname" placeholder="What should we call you?">
+        </div>
+        <div class="field-group">
+          <label for="auth-email">Email</label>
+          <input type="email" id="auth-email" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div class="field-group">
+          <label for="auth-password">Password</label>
+          <input type="password" id="auth-password" autocomplete="new-password" required placeholder="At least 6 characters" minlength="6">
+        </div>
+        <button class="primary" type="submit" id="auth-submit-btn">Sign up</button>
+      </form>
+
+      <p class="auth-note" id="auth-note">
+        Creates a real account (secured by Supabase) so your mastery progress and missed-question list follow you across devices. You'll need to log in again each time you reopen this app — we don't keep you signed in between visits.
+      </p>
+
+      <div class="guest-row">
+        <button id="continue-guest-btn" type="button">Continue as guest — progress won't be saved</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN APP (shown after auth resolves) -->
+  <div id="app-content" class="hidden">
+
+    <div class="account-bar" id="account-bar"></div>
+
+    <nav class="tab-nav">
+      <button class="tab-btn active" id="tab-btn-quiz" type="button">Quiz</button>
+      <button class="tab-btn" id="tab-btn-profile" type="button">Profile</button>
+    </nav>
+
+    <!-- QUIZ TAB -->
+    <div id="quiz-tab-content">
+
+    <!-- SETUP SCREEN -->
+    <div id="setup-screen">
+
+      <div class="callout hidden" id="missed-callout">
+        <div class="callout-text">
+          <strong id="missed-callout-count">0 questions to review</strong>
+          <span>Questions you've answered incorrectly, ready for another attempt.</span>
+        </div>
+        <button id="retry-missed-btn" type="button">Retry missed questions</button>
+      </div>
+
+      <div class="card">
+        <h2>Choose your domains</h2>
+        <div class="select-actions">
+          <button id="select-all-btn" type="button">Select all</button>
+          <button id="select-none-btn" type="button">Clear all</button>
+        </div>
+        <div class="domain-list" id="domain-list"></div>
+
+        <div class="row-field">
+          <label for="question-count">Number of questions</label>
+          <select id="question-count"></select>
+        </div>
+
+        <button class="primary" id="start-btn">Start quiz</button>
+      </div>
+    </div>
+
+    <!-- QUIZ SCREEN -->
+    <div id="quiz-screen" class="card hidden">
+      <div class="mastery-strip-wrap">
+        <div class="mastery-strip-title">Mastery by domain</div>
+        <div class="mastery-strip" id="mastery-strip"></div>
+      </div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+      <div class="quiz-meta">
+        <span id="quiz-progress-text"></span>
+        <span id="quiz-score-text"></span>
+      </div>
+      <div class="tag-row">
+        <div class="domain-tag" id="quiz-domain-tag"></div>
+        <div class="diff-badge" id="quiz-diff-badge"></div>
+      </div>
+      <div class="question-text" id="quiz-question"></div>
+      <div class="options" id="quiz-options"></div>
+      <div class="feedback hidden" id="quiz-feedback"></div>
+      <div class="nav-row">
+        <button class="primary hidden" id="next-btn">Next question</button>
+      </div>
+    </div>
+
+    <!-- RESULTS SCREEN -->
+    <div id="results-screen" class="card hidden">
+      <div class="score-hero">
+        <div class="pct" id="result-pct">0%</div>
+        <div class="sub" id="result-sub"></div>
+      </div>
+      <h2>Accuracy this round</h2>
+      <div id="domain-breakdown"></div>
+      <button class="secondary hidden" id="results-retry-missed-btn"></button>
+      <button class="secondary" id="review-toggle-btn">Show question review</button>
+      <div id="review-list" class="hidden" style="margin-top:16px;"></div>
+      <button class="link-btn" id="results-view-profile-btn" style="display:block; margin:18px auto 0;">View mastery dashboard in Profile →</button>
+
+      <button class="primary" id="restart-btn" style="margin-top:20px;">Start a new quiz</button>
+    </div>
+  </div>
+
+  <!-- PROFILE TAB -->
+  <div id="profile-tab-content" class="hidden">
+    <div class="callout hidden" id="profile-missed-callout">
+      <div class="callout-text">
+        <strong id="profile-missed-count">0 questions to review</strong>
+        <span>Questions you've answered incorrectly, ready for another attempt.</span>
+      </div>
+      <button id="profile-retry-missed-btn" type="button">Retry missed questions</button>
+    </div>
+
+    <div class="card" id="dashboard-card">
+      <div class="card-head">
+        <h2>Mastery dashboard</h2>
+      </div>
+      <p class="card-subtitle">Mastery blends your accuracy in a domain with how far you've climbed its difficulty ladder. It updates live as you answer questions.</p>
+      <div id="profile-dashboard-rows"></div>
+      <div class="reset-row"><button class="link-btn" id="reset-progress-btn">Reset progress</button></div>
+    </div>
+
+  </div>
+  <!-- /PROFILE TAB -->
+
+  </div>
+  <!-- /app-content -->
+
+  <footer class="note">
+    Practice questions are written to reflect BACB Test Content Outline (6th ed.) domains and are intended as study aid only — not affiliated with or endorsed by the BACB. Guests: progress is kept in memory only and resets when the page is closed or reloaded. Signed-in accounts: progress is saved to your account and available next time you log in, but you'll need to log in again each visit — this app doesn't keep you signed in between sessions.
+  </footer>
+</div>
+
+<script>
+const QUESTION_BANK = [{"domain": "A", "domainName": "Behaviorism & Philosophical Foundations", "question": "Which philosophical position, most closely associated with B.F. Skinner, holds that private events (thoughts and feelings) are themselves behavior and are subject to the same laws as publicly observable behavior?", "options": ["Methodological behaviorism", "Radical behaviorism", "Structuralism", "Mentalism"], "correct": 1, "explanation": "Radical behaviorism includes private events (thinking, feeling) as behavior to be explained by the same environmental variables as overt behavior. Methodological behaviorism, by contrast, restricts analysis to publicly observable events only.", "id": 1, "difficulty": 1}, {"domain": "A", "domainName": "Behaviorism & Philosophical Foundations", "question": "Skinner described selection by consequences operating at three levels. Which of the following is NOT one of these three levels?", "options": ["Phylogeny (natural selection)", "Ontogeny (operant conditioning across a lifetime)", "Cultural selection (practices of a group)", "Teleology (behavior explained by future goals)"], "correct": 3, "explanation": "The three levels are phylogenic, ontogenic, and cultural selection. Teleological explanations are rejected because they imply a future event causes a present behavior, which violates the assumption that causes must precede their effects.", "id": 2, "difficulty": 2}, {"domain": "A", "domainName": "Behaviorism & Philosophical Foundations", "question": "A behavior analyst assumes that all behavior, including behavior that appears spontaneous, results from identifiable variables in a person's genetic and environmental history. This reflects which basic scientific assumption?", "options": ["Parsimony", "Determinism", "Philosophic doubt", "Empiricism"], "correct": 1, "explanation": "Determinism is the assumption that the universe (including behavior) operates in an orderly, lawful way such that events have causes that can, in principle, be discovered.", "id": 3, "difficulty": 1}, {"domain": "B", "domainName": "Concepts & Principles", "question": "A child's tantrum results in a demand being removed, and tantrums increase in frequency in similar future situations. This is an example of:", "options": ["Positive reinforcement", "Negative reinforcement", "Positive punishment", "Negative punishment"], "correct": 1, "explanation": "Negative reinforcement involves the removal (or avoidance) of a stimulus contingent on a response, which increases the future frequency of that response. Here, escape from the demand increases tantrum behavior.", "id": 4, "difficulty": 1}, {"domain": "B", "domainName": "Concepts & Principles", "question": "Reinforcement is delivered for the first response that occurs after a variable amount of time has elapsed, averaging 3 minutes. This describes a:", "options": ["Fixed-interval schedule", "Variable-interval schedule", "Fixed-ratio schedule", "Variable-ratio schedule"], "correct": 1, "explanation": "A variable-interval (VI) schedule reinforces the first response after an interval of time that varies around an average value. Because it's interval-based (time), not ratio-based (response count), it typically produces a steady, moderate response rate.", "id": 5, "difficulty": 1}, {"domain": "B", "domainName": "Concepts & Principles", "question": "When reinforcement is withheld for a previously reinforced response, a common side effect is a temporary increase in the frequency, magnitude, or duration of the response. This is known as:", "options": ["Spontaneous recovery", "An extinction burst", "Resurgence", "Behavioral contrast"], "correct": 1, "explanation": "An extinction burst is a temporary increase in responding (and sometimes emotional/aggressive behavior) that often occurs early in extinction, before the behavior decreases.", "id": 6, "difficulty": 1}, {"domain": "B", "domainName": "Concepts & Principles", "question": "A stimulus that increases the current effectiveness of a reinforcer and evokes behavior that has previously produced that reinforcer is called a(n):", "options": ["Establishing operation", "Abolishing operation", "Discriminative stimulus (SD)", "Conditioned punisher"], "correct": 0, "explanation": "An establishing operation (EO) is a type of motivating operation that increases the reinforcing value of a stimulus and momentarily increases the frequency of behavior that has produced that reinforcer. An abolishing operation does the opposite.", "id": 7, "difficulty": 2}, {"domain": "B", "domainName": "Concepts & Principles", "question": "The matching law predicts that, given a choice between two concurrently available reinforcement schedules, an organism will:", "options": ["Always choose the schedule with the shortest response requirement", "Allocate its behavior in proportion to the relative rate of reinforcement produced by each alternative", "Alternate randomly between the two alternatives", "Choose exclusively whichever alternative was reinforced first"], "correct": 1, "explanation": "The matching law states that relative response rate matches relative reinforcement rate across concurrently available schedules — behavior is allocated proportionally, not exclusively.", "id": 8, "difficulty": 3}, {"domain": "B", "domainName": "Concepts & Principles", "question": "Behavior reinforced on a rich (dense) schedule tends to be more resistant to disruption or extinction than behavior reinforced on a lean schedule, even though the rich-schedule behavior may occur at a similar or lower rate. This describes:", "options": ["Behavioral momentum", "The matching law", "Response generalization", "Automatic reinforcement"], "correct": 0, "explanation": "Behavioral momentum theory distinguishes response rate from resistance to change, proposing that resistance to disruption is a function of the Pavlovian (stimulus-reinforcer) relation in the situation, tracked by reinforcement density.", "id": 9, "difficulty": 3}, {"domain": "B", "domainName": "Concepts & Principles", "question": "A neutral stimulus is repeatedly paired with an unconditioned stimulus until it begins to elicit a response on its own. This process describes:", "options": ["Operant conditioning", "Respondent (Pavlovian) conditioning", "Shaping", "Chaining"], "correct": 1, "explanation": "Respondent conditioning involves pairing a neutral stimulus with an unconditioned stimulus so that the neutral stimulus becomes a conditioned stimulus capable of eliciting a conditioned response.", "id": 10, "difficulty": 1}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "An observer divides a session into 10-second intervals and scores an interval as an occurrence only if the target behavior is present for the ENTIRE interval. This is:", "options": ["Partial-interval recording", "Whole-interval recording", "Momentary time sampling", "Frequency (event) recording"], "correct": 1, "explanation": "Whole-interval recording requires the behavior to occur throughout the entire interval to be scored, which tends to underestimate the true occurrence of behavior.", "id": 11, "difficulty": 1}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "A behavior occurs at such a high, continuous rate that discrete responses are difficult to count separately (e.g., prolonged rocking). Which dimension of behavior is most practical to measure?", "options": ["Frequency (count)", "Duration", "Latency", "Interresponse time"], "correct": 1, "explanation": "When responses run together or are hard to distinguish as discrete events, duration recording (how long the behavior lasts) is more practical and meaningful than trying to count discrete instances.", "id": 12, "difficulty": 2}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "Two independent observers score the same 50 intervals. They agree on 40 intervals and disagree on 10. Using the simple interval-by-interval interobserver agreement (IOA) formula, what is the percentage agreement?", "options": ["40%", "50%", "75%", "80%"], "correct": 3, "explanation": "IOA = agreements ÷ (agreements + disagreements) × 100 = 40 ÷ 50 × 100 = 80%.", "id": 13, "difficulty": 2}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "A behavior analyst wants to know how quickly a learner begins a response after an instruction (SD) is given. Which dimension of behavior should be measured?", "options": ["Duration", "Latency", "Interresponse time (IRT)", "Rate"], "correct": 1, "explanation": "Latency is the elapsed time between the onset of a stimulus (e.g., an instruction) and the initiation of the response. IRT, by contrast, is the time between the end of one response and the start of the next.", "id": 14, "difficulty": 1}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "On an equal-interval line graph, which visual feature indicates that behavior is systematically increasing or decreasing across successive data points within a single phase?", "options": ["Level", "Trend", "Variability", "Immediacy of effect"], "correct": 1, "explanation": "Trend refers to the overall direction (slope) of the data path within a phase. Level refers to the relative magnitude of the data, and variability refers to the fluctuation of data points around the trend.", "id": 15, "difficulty": 1}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "A behavior analyst compares the number of correct responses across sessions, but session lengths varied from 20 to 45 minutes. To make the counts comparable across sessions, the analyst should convert them to:", "options": ["Percentage", "Rate (count per unit of time)", "Duration", "Trials to criterion"], "correct": 1, "explanation": "Rate (count divided by time) adjusts raw counts for differing observation periods, allowing sessions of different lengths to be meaningfully compared.", "id": 16, "difficulty": 2}, {"domain": "D", "domainName": "Experimental Design", "question": "In a reversal (ABAB) design, what is the primary purpose of returning to baseline conditions after the intervention has produced a change in behavior?", "options": ["To penalize the participant for improving too quickly", "To demonstrate experimental control by showing behavior returns toward baseline levels when treatment is withdrawn", "To reduce the total number of required sessions", "To provide an opportunity for generalization probes"], "correct": 1, "explanation": "The reversal to baseline (the second 'A' phase) is designed to demonstrate that changes in behavior are functionally related to the introduction/withdrawal of the independent variable, ruling out extraneous variables.", "id": 17, "difficulty": 2}, {"domain": "D", "domainName": "Experimental Design", "question": "A researcher wants to evaluate an intervention across three different skills that, once learned, would not be expected to reverse. Which design is most appropriate?", "options": ["Reversal (ABAB) design", "Multiple baseline design", "Alternating treatments design", "Changing criterion design"], "correct": 1, "explanation": "A multiple baseline design demonstrates experimental control by staggering the introduction of the intervention across different baselines (behaviors, settings, or participants) and is ideal when behavior change is expected to be irreversible.", "id": 18, "difficulty": 2}, {"domain": "D", "domainName": "Experimental Design", "question": "In an alternating treatments (multielement) design, two or more conditions are rapidly alternated (e.g., across sessions or within a session) primarily to:", "options": ["Establish a single stable baseline before intervention", "Compare the relative effects of two or more interventions on behavior within the same participant", "Gradually shift the criterion required for reinforcement", "Demonstrate long-term maintenance of behavior change"], "correct": 1, "explanation": "The alternating treatments design allows rapid, direct comparison of two or more conditions (e.g., two interventions, or intervention vs. baseline) on the same behavior, often without requiring an extended baseline.", "id": 19, "difficulty": 2}, {"domain": "D", "domainName": "Experimental Design", "question": "A confound in which some event other than the independent variable occurs at approximately the same time treatment is introduced, making it unclear what produced the behavior change, is primarily a threat to:", "options": ["External validity", "Internal validity", "Social validity", "Content validity"], "correct": 1, "explanation": "This is a 'history' threat to internal validity — an uncontrolled event coinciding with the intervention makes it impossible to confidently attribute the behavior change to the independent variable alone.", "id": 20, "difficulty": 3}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "Before beginning services, a behavior analyst reviews with the client the risks, benefits, expected process, and fees of treatment and obtains their agreement to proceed. This process is known as:", "options": ["Informed consent", "Debriefing", "Peer review", "Assent"], "correct": 0, "explanation": "Informed consent is the process of providing a client (or their legal representative) with the information needed to make a voluntary, knowledgeable decision about participating in services.", "id": 21, "difficulty": 1}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A BCBA is close personal friends with a family and is asked to also provide direct behavior-analytic services to their child. Blending the existing friendship with a new professional service relationship primarily raises a concern about:", "options": ["Plagiarism", "Multiple (dual) relationships", "Duplication of services with another provider", "Late documentation"], "correct": 1, "explanation": "Multiple relationships occur when a behavior analyst is in a professional role with a client while simultaneously in another role (e.g., friend, business partner), which can impair objectivity and should be carefully evaluated and, where possible, avoided or managed.", "id": 22, "difficulty": 2}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A behavior analyst continuously collects and graphs data throughout treatment and adjusts the intervention based on the client's progress or lack thereof. This practice reflects the ethical obligation to:", "options": ["Rely primarily on clinical intuition", "Make data-based decisions", "Avoid conflicts of interest", "Maintain confidentiality of records"], "correct": 1, "explanation": "Behavior analysts are ethically obligated to rely on ongoing, objective data to guide and modify treatment decisions, rather than relying solely on subjective impressions.", "id": 23, "difficulty": 1}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A behavior analyst learns that a procedure they have been using is no longer supported by current research evidence. The behavior analyst should:", "options": ["Continue the procedure since it worked previously", "Prioritize personal clinical experience over the research literature", "Modify or discontinue the procedure based on the best available scientific evidence", "Refer the decision entirely to the client's family without providing guidance"], "correct": 2, "explanation": "Behavior analysts have an ethical obligation to practice within the boundaries of current scientific knowledge and to update their practices as the evidence base evolves.", "id": 24, "difficulty": 2}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A trainee under a BCBA's supervision makes an implementation error that could jeopardize a client's welfare. Who holds primary ethical responsibility for the welfare of that client?", "options": ["The trainee alone", "The supervising BCBA", "The employing agency exclusively", "The client's family"], "correct": 1, "explanation": "Supervisors are ethically responsible for the welfare of clients served by their supervisees and for ensuring supervisees are adequately trained and monitored.", "id": 25, "difficulty": 2}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A funding source asks a behavior analyst to implement a punishment-only procedure without first considering reinforcement-based alternatives. The behavior analyst should:", "options": ["Comply immediately since the funder controls payment", "Recommend the least restrictive, most effective approach, prioritizing reinforcement-based procedures first", "Refuse to work with the funding source altogether", "Implement the procedure but avoid documenting it"], "correct": 1, "explanation": "Ethical guidelines direct behavior analysts to recommend the most effective, least restrictive intervention available, giving priority to reinforcement-based procedures before considering more intrusive or punishment-based approaches.", "id": 26, "difficulty": 2}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A behavior analyst identifies a potential conflict of interest that could compromise their objectivity in delivering services. The most appropriate action is to:", "options": ["Ignore it, since referrals are hard to obtain", "Disclose the conflict and take steps to address or resolve it, which may include recusal", "Continue services without informing anyone", "Ask the client to decide without providing any information about the conflict"], "correct": 1, "explanation": "Behavior analysts are ethically required to identify, disclose, and appropriately manage conflicts of interest that could compromise their professional judgment or objectivity.", "id": 27, "difficulty": 2}, {"domain": "F", "domainName": "Behavior Assessment", "question": "Functional behavior assessment includes indirect methods, descriptive (naturalistic) methods, and functional analysis (experimental) methods. Which provides the strongest evidence of a functional relation between an environmental variable and behavior?", "options": ["A rating scale or questionnaire", "ABC descriptive recording", "Functional (experimental) analysis", "A structured interview"], "correct": 2, "explanation": "Because a functional analysis directly manipulates antecedents/consequences under controlled conditions, it is the only method that can demonstrate a functional (causal) relation, rather than merely a correlation.", "id": 28, "difficulty": 1}, {"domain": "F", "domainName": "Behavior Assessment", "question": "During a functional analysis, problem behavior occurs at consistently high rates across the play, attention, demand, and alone conditions, with no clear differentiation between conditions. This pattern most likely suggests:", "options": ["The behavior is clearly attention-maintained", "An undifferentiated result, possibly indicating automatic reinforcement or multiple controlling variables", "The behavior is clearly escape-maintained", "The assessment definitively shows the behavior has no function"], "correct": 1, "explanation": "Undifferentiated functional analysis results (high rates across all conditions) commonly suggest automatic reinforcement, multiple maintaining variables, or procedural/design issues, and typically warrant further assessment.", "id": 29, "difficulty": 3}, {"domain": "F", "domainName": "Behavior Assessment", "question": "In a paired-stimulus (forced-choice) preference assessment, two items are presented simultaneously and selections are recorded across repeated trials. This method is designed primarily to:", "options": ["Rank potential reinforcers in order of preference", "Establish a functional relation between a behavior and a consequence", "Determine the topography of a target behavior", "Measure treatment fidelity"], "correct": 0, "explanation": "Paired-stimulus preference assessments are used to identify and rank stimuli by preference, which helps predict which items are likely to function as effective reinforcers.", "id": 30, "difficulty": 1}, {"domain": "F", "domainName": "Behavior Assessment", "question": "A behavior analyst directly observes and records instances of problem behavior along with the immediate antecedents and consequences as they naturally occur, without manipulating any variables. This describes:", "options": ["Functional (experimental) analysis", "Descriptive (ABC) assessment", "Indirect assessment", "A preference assessment"], "correct": 1, "explanation": "Descriptive assessment involves direct observation of naturally occurring behavior-environment relations (antecedents, behavior, consequences) without experimental manipulation.", "id": 31, "difficulty": 1}, {"domain": "F", "domainName": "Behavior Assessment", "question": "Before conducting a functional analysis with a client who engages in severe self-injurious behavior, the behavior analyst should FIRST:", "options": ["Skip baseline data collection to save time", "Conduct a risk assessment, obtain informed consent, and put safety precautions in place", "Begin treatment immediately without any assessment", "Rely exclusively on indirect methods because of the risk, with no direct observation"], "correct": 1, "explanation": "When severe or dangerous behavior is involved, the behavior analyst must weigh risks and benefits, secure informed consent, and implement appropriate safeguards before conducting procedures like a functional analysis that may evoke the target behavior.", "id": 32, "difficulty": 2}, {"domain": "F", "domainName": "Behavior Assessment", "question": "A well-written operational definition of a target behavior for assessment purposes should be:", "options": ["Broad and open to clinical interpretation", "Objective, clear, and complete, so different observers can reliably agree on occurrences", "Based solely on the informal label caregivers use (e.g., 'tantrum')", "Finalized only after data collection has already ended"], "correct": 1, "explanation": "A good operational definition is objective (observable), clear (unambiguous), and complete (distinguishes the behavior from similar responses), which supports high interobserver agreement.", "id": 33, "difficulty": 1}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "Reinforcing successive approximations toward a terminal target behavior that is not currently in the individual's repertoire describes:", "options": ["Chaining", "Shaping", "Prompting", "Extinction"], "correct": 1, "explanation": "Shaping is the differential reinforcement of successive approximations to a terminal behavior, used to develop new behaviors not currently exhibited.", "id": 34, "difficulty": 1}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "A teacher gradually reduces the intensity or frequency of prompts (e.g., from physical to gestural to independent) as a learner acquires a skill. This process is called:", "options": ["Prompt delay", "Fading", "Backward chaining", "Differential reinforcement"], "correct": 1, "explanation": "Fading is the gradual removal of a prompt (or other stimulus) across successive trials, transferring stimulus control to the naturally occurring SD.", "id": 35, "difficulty": 1}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "A behavior analyst reinforces a target behavior only when it occurs at a lower rate than previously reinforced. This describes:", "options": ["Differential reinforcement of other behavior (DRO)", "Differential reinforcement of low rates (DRL)", "Differential reinforcement of incompatible behavior (DRI)", "Noncontingent reinforcement (NCR)"], "correct": 1, "explanation": "DRL reinforces behavior only when it occurs at or below a specified, reduced rate, and is used to decrease (rather than eliminate) the frequency of a behavior that is acceptable at a lower rate.", "id": 36, "difficulty": 2}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "Reinforcement delivered on a fixed or variable time schedule, independent of the individual's behavior, in order to reduce problem behavior, is called:", "options": ["Noncontingent reinforcement (NCR)", "Differential reinforcement of alternative behavior (DRA)", "Response cost", "Extinction"], "correct": 0, "explanation": "NCR provides reinforcement on a time-based schedule regardless of whether the target behavior occurs, which can reduce the motivation to engage in problem behavior to obtain that reinforcer.", "id": 37, "difficulty": 2}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "A functional communication training (FCT) program teaches a learner to request a break using a picture card, replacing escape-maintained problem behavior. This is best classified as an application of:", "options": ["Differential reinforcement of incompatible behavior (DRI)", "Differential reinforcement of alternative behavior (DRA)", "Differential reinforcement of low rates (DRL)", "Noncontingent reinforcement (NCR)"], "correct": 1, "explanation": "FCT is a well-known application of DRA in which a functionally equivalent, more socially appropriate communicative response is reinforced in place of problem behavior that served the same function.", "id": 38, "difficulty": 3}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "In backward chaining, the learner:", "options": ["Is taught the first step of the chain first, with subsequent steps added over time", "Is taught the LAST step of the chain first (with the trainer completing prior steps), and earlier steps are added in reverse order", "Performs the entire chain independently from the very first trial", "Is only reinforced after completing the entire chain without any prompting"], "correct": 1, "explanation": "In backward chaining, the trainer completes all steps except the last, which the learner performs (and is reinforced for); once mastered, the second-to-last step is added, and so on, moving backward through the chain.", "id": 39, "difficulty": 2}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "A token economy is best described as a system in which:", "options": ["Backup reinforcers are delivered directly for every correct response", "Generalized conditioned reinforcers (tokens) are earned for target behaviors and later exchanged for backup reinforcers", "Only negative reinforcement procedures are used", "Punishment is systematically paired with a previously neutral stimulus"], "correct": 1, "explanation": "In a token economy, tokens function as generalized conditioned reinforcers that are earned contingent on target behavior and later exchanged for a variety of backup reinforcers.", "id": 40, "difficulty": 1}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "When multiple treatment options are expected to be similarly effective, best-practice and ethical guidelines direct the behavior analyst to select the option that is:", "options": ["Most convenient for staff to implement", "Least restrictive/intrusive to the client", "Least costly, regardless of relative effectiveness", "Most novel or innovative"], "correct": 1, "explanation": "Behavior analysts should recommend the least restrictive effective procedure available, consistent with the principle that intrusiveness should be justified by the necessity and effectiveness of the approach.", "id": 41, "difficulty": 1}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "A behavior intervention plan should be based primarily on:", "options": ["The behavior analyst's personal intuition", "The results of the functional behavior assessment", "What worked for a different client with a similar diagnosis", "Caregiver preference alone, regardless of assessment data"], "correct": 1, "explanation": "Effective, individualized intervention plans are derived from the results of a functional behavior assessment that identifies the variables maintaining the target behavior for that specific client.", "id": 42, "difficulty": 1}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "Treatment fidelity (procedural integrity) refers to:", "options": ["The extent to which a caregiver likes the intervention", "The extent to which an intervention is implemented as it was designed and planned", "The statistical significance of the treatment's effects", "The overall cost-effectiveness of an intervention"], "correct": 1, "explanation": "Treatment fidelity (also called procedural integrity) is the degree to which an intervention is implemented as designed; low fidelity can undermine an otherwise effective intervention and confound outcome data.", "id": 43, "difficulty": 1}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "To promote generalization of a newly learned skill across settings, a behavior analyst should:", "options": ["Teach the skill in only one highly controlled setting", "Program common stimuli, train with sufficient exemplars, and reinforce the behavior across natural settings", "Avoid reinforcing the behavior outside of the training setting", "Rely on the client to generalize the skill without any planning"], "correct": 1, "explanation": "Generalization is typically not automatic and should be actively programmed for, using strategies such as training sufficient exemplars, using common/natural stimuli and consequences, and reinforcing generalized responding.", "id": 44, "difficulty": 2}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "As a client's behavior improves, a behavior analyst plans to gradually fade the intensity of the treatment. The primary purpose of this fading process is to:", "options": ["Reduce cost regardless of client outcomes", "Promote maintenance of behavior change under more naturalistic, less intensive conditions", "Immediately terminate all services", "Shift reinforcement to a continuous (CRF) schedule"], "correct": 1, "explanation": "Fading treatment intensity over time helps ensure that behavior change persists (maintenance) under conditions that more closely resemble the individual's typical, less intensive natural environment.", "id": 45, "difficulty": 2}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "According to BACB supervision standards, one of the primary purposes of providing regular, structured supervision to trainees/supervisees is to:", "options": ["Reduce the supervisor's overall workload", "Ensure the supervisee develops competence and to protect the welfare of clients served by the supervisee", "Avoid the need to provide performance feedback", "Replace the need for ethical practice standards"], "correct": 1, "explanation": "Supervision exists to develop supervisee competence in a structured, monitored way while safeguarding the welfare of the clients that supervisee serves.", "id": 46, "difficulty": 1}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "When providing performance feedback to a supervisee, best practice suggests the feedback should be:", "options": ["Vague and general, to avoid discouraging the supervisee", "Specific, timely, and behaviorally based, addressing both strengths and areas for improvement", "Delivered only in writing, with no opportunity for discussion", "Delivered only when performance problems occur, never for good performance"], "correct": 1, "explanation": "Effective feedback is specific, delivered close in time to the observed performance, behaviorally described, and balanced — reinforcing strengths while identifying clear areas for improvement.", "id": 47, "difficulty": 1}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "A supervisor notices a pattern of declining staff performance on a particular team. From an organizational behavior management (OBM) perspective, the supervisor should FIRST:", "options": ["Assume staff are simply unmotivated and consider replacing them", "Assess for antecedents and consequences in the work environment that may be maintaining or discouraging the desired performance", "Increase punitive consequences for any errors", "Ignore the pattern, since some variability is normal"], "correct": 1, "explanation": "An OBM approach calls for a performance/functional assessment of the work environment (e.g., unclear expectations, lack of feedback, competing contingencies) before assuming a motivational deficit or applying punitive consequences.", "id": 48, "difficulty": 2}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "To support competent, culturally responsive service delivery, a supervisor should train supervisees to:", "options": ["Apply the same treatment approach to every client regardless of background", "Consider the client's and family's cultural, linguistic, and other individual variables when selecting and implementing procedures", "Avoid discussing cultural factors, since they are unrelated to behavior-analytic practice", "Only provide services in the supervisor's preferred language"], "correct": 1, "explanation": "Culturally responsive practice requires actively considering relevant cultural, linguistic, and individual variables of the client and family throughout assessment and treatment planning, rather than applying a one-size-fits-all approach.", "id": 49, "difficulty": 1}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "An organization uses graphed performance feedback, goal-setting, and contingent recognition to improve staff implementation of behavior plans. This describes an application of:", "options": ["Applied behavior analysis directed at a client's target behavior", "Organizational behavior management (OBM), applying behavior-analytic principles to staff performance", "A stimulus preference assessment", "A functional (experimental) analysis"], "correct": 1, "explanation": "OBM applies behavior-analytic principles (e.g., feedback, goal-setting, reinforcement) to improve the performance of staff/employees within an organization, rather than targeting a client's behavior directly.", "id": 50, "difficulty": 2}, {"domain": "A", "domainName": "Behaviorism & Philosophical Foundations", "question": "What are the goals of behavior analysis as a natural science, listed in order of increasing scientific rigor?", "options": ["Description, prediction, control", "Control, prediction, description", "Explanation, evaluation, control", "Measurement, interpretation, publication"], "correct": 0, "explanation": "The three goals of the science, from most basic to most rigorous, are description (observing and categorizing behavior-environment relations), prediction (identifying correlations that allow forecasting), and control (experimentally manipulating variables to produce a predicted change).", "difficulty": 1, "id": 51}, {"domain": "A", "domainName": "Behaviorism & Philosophical Foundations", "question": "A behavior analyst avoids invoking unobservable, hypothetical internal causes (e.g., a 'memory trace') as a complete explanation for behavior, preferring explanations tied to identifiable environmental variables. This best reflects the scientific value of:", "options": ["Parsimony", "Determinism", "Replicability", "Pragmatism"], "correct": 0, "explanation": "Parsimony requires that simpler explanations relying on already-established, observable variables be ruled out before more complex explanations (including hypothetical internal constructs) are entertained.", "difficulty": 2, "id": 52}, {"domain": "A", "domainName": "Behaviorism & Philosophical Foundations", "question": "Functional contextualism, the philosophy of science underlying behavior analysis, evaluates the truth of a scientific statement primarily based on:", "options": ["Whether it corresponds to an objective, mind-independent reality", "Whether it achieves the analytic goal of predicting and influencing behavior with precision, scope, and depth", "Whether it is consistent with structuralist theories of the mind", "Whether any observer can replicate it regardless of purpose"], "correct": 1, "explanation": "Functional contextualism uses a pragmatic truth criterion: a statement or theory is 'true' to the extent it is successfully working toward the analytic goal of predicting and influencing behavior, not because it mirrors some independent reality.", "difficulty": 3, "id": 53}, {"domain": "B", "domainName": "Concepts & Principles", "question": "A response is immediately followed by the presentation of a stimulus, and the future frequency of that response decreases. This is an example of:", "options": ["Positive reinforcement", "Positive punishment", "Negative reinforcement", "Extinction"], "correct": 1, "explanation": "Positive punishment involves the presentation of a stimulus contingent on a response that decreases the future frequency of that response.", "difficulty": 1, "id": 54}, {"domain": "B", "domainName": "Concepts & Principles", "question": "Which verbal operant is evoked primarily by a nonverbal discriminative stimulus (e.g., seeing a dog) and is maintained by generalized conditioned reinforcement (e.g., social praise) rather than a reinforcer specifically related to the stimulus?", "options": ["Mand", "Tact", "Echoic", "Intraverbal"], "correct": 1, "explanation": "A tact is a verbal operant evoked by a nonverbal SD (an object, event, or property) and reinforced generally (e.g., attention, praise), such as labeling a dog by saying 'dog.'", "difficulty": 1, "id": 55}, {"domain": "B", "domainName": "Concepts & Principles", "question": "A verbal operant that is evoked by another person's verbal behavior and does NOT share point-to-point correspondence with it (e.g., answering 'What's your name?' with 'Alex') is called a(n):", "options": ["Echoic", "Intraverbal", "Mand", "Tact"], "correct": 1, "explanation": "An intraverbal is controlled by verbal stimuli from another speaker but does not match that stimulus point-for-point, unlike an echoic (which does match).", "difficulty": 2, "id": 56}, {"domain": "B", "domainName": "Concepts & Principles", "question": "A stimulus acquires reinforcing value only because it is related to an independently established motivating operation and signals whether a terminal reinforcer will be delivered (e.g., a can opener is reinforcing to a cat mainly when the cat is food-deprived). This describes a:", "options": ["Unconditioned reinforcer", "Surrogate conditioned motivating operation", "Reflexive conditioned motivating operation", "Transitive conditioned motivating operation (CMO-T)"], "correct": 3, "explanation": "A transitive CMO (CMO-T) acquires value because its presence signals that a response will now produce (or avoid) a reinforcer that is independently established by another motivating operation — here, food deprivation makes access to food-related tools like a can opener momentarily more valuable.", "difficulty": 2, "id": 57}, {"domain": "B", "domainName": "Concepts & Principles", "question": "The degree to which a response continues to occur after reinforcement has been completely withheld is referred to as:", "options": ["Spontaneous recovery", "Resistance to extinction", "Behavioral contrast", "The extinction burst"], "correct": 1, "explanation": "Resistance to extinction describes how persistently a response continues once reinforcement is discontinued; it is influenced by factors such as the prior schedule of reinforcement.", "difficulty": 2, "id": 58}, {"domain": "B", "domainName": "Concepts & Principles", "question": "A pigeon's key-pecking, previously reinforced in the presence of a red light, is tested with lights of varying wavelengths without further reinforcement. Responding is highest to red and decreases systematically as the test stimuli become less similar to red. This pattern of results is called a:", "options": ["Multiple schedule effect", "Generalization gradient", "Matching relation", "Behavioral contrast effect"], "correct": 1, "explanation": "A generalization gradient shows how responding, established under one stimulus value, systematically varies with the similarity of test stimuli to the original training stimulus.", "difficulty": 3, "id": 59}, {"domain": "B", "domainName": "Concepts & Principles", "question": "Two reinforcement schedule components are presented in an alternating or random sequence, each signaled by its own discriminative stimulus, with reinforcement in one component not depending on responding in the other. This describes a:", "options": ["Concurrent schedule", "Multiple schedule", "Chained schedule", "Mixed schedule"], "correct": 1, "explanation": "A multiple schedule presents two or more independent schedule components, each correlated with a distinct SD, in alternation. This differs from a concurrent schedule (simultaneous choice), a chained schedule (sequential components with only the final response reinforced), and a mixed schedule (like multiple, but without distinct SDs).", "difficulty": 3, "id": 60}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "Counting the number of worksheet problems a student completed correctly after the session has ended, rather than observing the student in real time, is an example of:", "options": ["Permanent product recording", "Momentary time sampling", "Latency recording", "Interval recording"], "correct": 0, "explanation": "Permanent product recording measures a lasting outcome or byproduct of behavior (e.g., completed worksheets) rather than requiring real-time observation of the behavior itself.", "difficulty": 1, "id": 61}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "On a standard line graph used in behavior analysis, a vertical line separating two adjacent conditions (e.g., baseline and intervention) is called a:", "options": ["Data path", "Condition-change line", "Trend line", "Y-axis"], "correct": 1, "explanation": "A condition-change line is a vertical line marking the boundary between two conditions/phases, signaling that some aspect of the independent variable has changed.", "difficulty": 1, "id": 62}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "When comparing two observers' interval-by-interval data, agreement is calculated only for intervals in which at least one observer recorded an occurrence, ignoring intervals where both recorded nonoccurrence. This IOA method is called:", "options": ["Total count IOA", "Exact agreement IOA", "Occurrence-only (scored-interval) IOA", "Trial-by-trial IOA"], "correct": 2, "explanation": "Occurrence-only IOA excludes intervals where both observers agreed on nonoccurrence, which prevents inflated agreement percentages for low-rate behaviors.", "difficulty": 2, "id": 63}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "A behavior analyst wants to know whether an intervention's effect appeared right after implementation or only gradually developed over time. Which visual-analysis dimension addresses this specifically?", "options": ["Level", "Trend", "Immediacy of effect", "Variability"], "correct": 2, "explanation": "Immediacy of effect refers to how quickly a change in behavior occurs after the onset of a new condition; a rapid, clear shift right at the condition-change line provides stronger evidence of a treatment effect.", "difficulty": 2, "id": 64}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "Two observers achieve 95% interval-by-interval agreement on a behavior that occurred in only about 4% of the observed intervals. This impressive-looking agreement figure is most likely inflated due to:", "options": ["The behavior's inherently high rate", "The prevalence effect, in which agreement on the many nonoccurrence intervals dominates the overall statistic", "Observer reactivity", "A poor operational definition alone"], "correct": 1, "explanation": "With very low-rate behavior, the overwhelming number of nonoccurrence intervals can produce high overall percentage agreement even when observers disagree substantially on the rare occurrence intervals — which is why occurrence-only IOA is recommended for low-rate behavior.", "difficulty": 3, "id": 65}, {"domain": "C", "domainName": "Measurement, Data Display & Interpretation", "question": "A behavior analyst notices a client's rate of on-task behavior is systematically higher whenever a supervisor is visibly present in the room, compared to when only familiar direct-care staff are observing. This pattern is best described as a concern about:", "options": ["Interobserver agreement", "Reactivity of the measurement procedure", "Treatment fidelity", "Response generalization"], "correct": 1, "explanation": "Reactivity occurs when the act of being observed/measured itself changes the behavior, especially when the observer is conspicuous or unfamiliar, which can distort the accuracy of the data collected.", "difficulty": 3, "id": 66}, {"domain": "D", "domainName": "Experimental Design", "question": "A design in which the criterion required for reinforcement is progressively raised or lowered in a stepwise fashion, with behavior expected to track each new criterion level, is called a:", "options": ["Changing criterion design", "Multiple baseline design", "Alternating treatments design", "Reversal design"], "correct": 0, "explanation": "In a changing criterion design, experimental control is demonstrated by behavior repeatedly changing to match a series of progressively adjusted performance criteria.", "difficulty": 1, "id": 67}, {"domain": "D", "domainName": "Experimental Design", "question": "The logic of single-subject research design rests on three baseline properties: prediction, verification, and:", "options": ["Randomization", "Replication", "Standardization", "Generalization"], "correct": 1, "explanation": "Baseline logic involves predicting what would happen without intervention, verifying that prediction by continuing baseline, and replicating the effect to demonstrate a functional relation.", "difficulty": 1, "id": 68}, {"domain": "D", "domainName": "Experimental Design", "question": "A researcher systematically compares three different magnitudes of the same reinforcer (small, medium, large) to identify which value produces the greatest behavior change. This type of investigation is called a:", "options": ["Component analysis", "Parametric analysis", "Alternating treatments comparison used as a preference assessment", "Functional analysis"], "correct": 1, "explanation": "A parametric analysis systematically varies a single dimension (parameter) of a variable, such as reinforcer magnitude, delay, or quality, to determine its effect on behavior.", "difficulty": 2, "id": 69}, {"domain": "D", "domainName": "Experimental Design", "question": "A treatment package includes three components: a token system, praise, and prompting. To determine which specific component(s) are responsible for the observed behavior change, a researcher systematically removes or isolates each component across conditions. This is called a:", "options": ["Parametric analysis", "Component (or component-drop) analysis", "An alternating treatments design used as a preference assessment", "A reversal design"], "correct": 1, "explanation": "A component analysis isolates or removes individual elements of a multi-component treatment package to determine which component(s) are necessary or sufficient for the treatment effect.", "difficulty": 3, "id": 70}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A behavior analyst only provides services in areas where they have appropriate education, training, and supervised experience. This reflects the ethical requirement to practice within one's:", "options": ["Comfort zone", "Boundaries of competence", "Personal preference", "Financial interest"], "correct": 1, "explanation": "Behavior analysts are ethically required to provide services only within the boundaries of their documented competence, obtained through education, training, and supervised experience.", "difficulty": 1, "id": 71}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "Before publishing a case example that includes identifiable details about a client, a behavior analyst must first obtain the client's (or legal representative's):", "options": ["Verbal opinion only, with no written record needed", "Informed, written consent", "Retroactive notification after publication", "Approval from the funding source only"], "correct": 1, "explanation": "Sharing identifiable client information for publication, teaching, or presentation requires prior informed written consent from the client or their legal representative.", "difficulty": 1, "id": 72}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A managed-care payer wants a child's treatment hours reduced for cost reasons, even though the behavior analyst's data show continued clinical need for the current level of service. The behavior analyst should primarily prioritize:", "options": ["The payer's financial preferences", "The welfare and clinical needs of the client, advocating accordingly", "Ending services immediately to avoid conflict with the payer", "Reducing documentation to satisfy the payer"], "correct": 1, "explanation": "When a third party's interests conflict with a client's welfare, behavior analysts are ethically obligated to prioritize and advocate for the client's clinical needs, using objective data to support that advocacy.", "difficulty": 2, "id": 73}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "Using another author's published intervention description word-for-word in a report without citation or quotation marks is an example of:", "options": ["Fair use", "Plagiarism", "Peer review", "Informed consent"], "correct": 1, "explanation": "Presenting someone else's words or ideas as one's own without proper attribution constitutes plagiarism, an ethical and professional violation.", "difficulty": 2, "id": 74}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A behavior analyst directly observes a colleague using an intervention procedure that is not part of the client's approved plan and appears to pose a risk. Consistent with ethical guidelines, the analyst's most appropriate first step is generally to:", "options": ["Report the colleague to the BACB immediately with no other action", "Ignore it, since it is not the observer's client", "Attempt to address the concern directly with the colleague first when feasible and safe, escalating through appropriate channels if unresolved or if the client is in immediate danger", "Post publicly about the incident to warn other families"], "correct": 2, "explanation": "Ethical guidelines generally favor addressing a suspected violation directly and informally with the individual first, when appropriate and not unsafe to do so, escalating to formal reporting channels if the issue is unresolved, serious, or presents immediate danger.", "difficulty": 3, "id": 75}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A client's family requests an intervention with limited evidence to replace an empirically supported intervention that is currently producing measurable progress. The behavior analyst should:", "options": ["Implement the family's requested intervention immediately without discussion, since family preference always overrides clinical evidence", "Discuss the evidence, risks, and benefits with the family, and collaboratively reach a data-informed decision that respects their values without abandoning effective treatment without justification", "Refuse to discuss it and terminate services", "Implement both interventions simultaneously without telling the family which is actually being used"], "correct": 1, "explanation": "Ethical practice calls for transparent, collaborative decision-making that weighs the evidence base and the family's values and preferences, rather than either unilaterally overriding the family or abandoning effective treatment without a sound clinical rationale.", "difficulty": 3, "id": 76}, {"domain": "E", "domainName": "Ethical & Professional Issues", "question": "A behavior analyst providing telehealth services to a client in another state or jurisdiction should, prior to beginning services, primarily verify:", "options": ["That the client has reliable internet access only", "Applicable legal, regulatory, and licensure requirements for delivering services across that jurisdictional line", "That the client prefers telehealth over in-person services", "Nothing beyond standard informed consent"], "correct": 1, "explanation": "Behavior analysts must ensure they are practicing in compliance with the legal and regulatory requirements (including licensure) of the jurisdiction where the client is located, in addition to standard informed consent and telehealth-specific considerations.", "difficulty": 3, "id": 77}, {"domain": "F", "domainName": "Behavior Assessment", "question": "In a multiple-stimulus-without-replacement (MSWO) preference assessment, once an item is selected by the learner, it is:", "options": ["Immediately placed back into the array for the next trial", "Removed from the array for the remainder of that assessment", "Replaced with a novel item", "Rated on a scale rather than physically selected"], "correct": 1, "explanation": "In MSWO, selected items are removed (not replaced) across successive trials, which produces a rank-ordered hierarchy of preference across the full array of items.", "difficulty": 1, "id": 78}, {"domain": "F", "domainName": "Behavior Assessment", "question": "An indirect assessment tool such as the Questions About Behavioral Function (QABF) or the Motivation Assessment Scale (MAS) primarily gathers information by:", "options": ["Directly observing the behavior as it occurs in the natural environment", "Experimentally manipulating antecedents and consequences", "Having informants (e.g., caregivers, teachers) rate or answer questions based on their impressions of the behavior", "Recording permanent products of the behavior"], "correct": 2, "explanation": "Indirect assessments rely on informant report (rating scales, questionnaires, interviews) rather than direct observation or experimental manipulation.", "difficulty": 2, "id": 79}, {"domain": "F", "domainName": "Behavior Assessment", "question": "A behavior analyst conducts several brief functional analysis conditions (e.g., 5 minutes each) within a single extended session rather than across multiple full-length sessions, primarily to:", "options": ["Increase risk to the client", "Reduce the overall time needed to gather assessment information, which is useful in settings with time constraints", "Eliminate the need for informed consent", "Avoid needing a control/play condition"], "correct": 1, "explanation": "Brief functional analysis formats condense assessment conditions into a shorter overall timeframe, which is useful in outpatient or other time-limited clinical settings, though they may sacrifice some of the precision of an extended FA.", "difficulty": 2, "id": 80}, {"domain": "F", "domainName": "Behavior Assessment", "question": "In a trial-based functional analysis embedded within natural routines, each trial consists of a brief test condition immediately followed by a brief control condition. This format is especially useful because it:", "options": ["Requires a dedicated analogue setting separate from the natural environment", "Can be conducted by front-line staff or teachers throughout the school or home day with minimal disruption to routines", "Eliminates the need for an operational definition", "Cannot be used to assess escape-maintained behavior"], "correct": 1, "explanation": "Trial-based functional analysis is designed to be embedded in ongoing naturalistic routines and implemented by typical caregivers/staff, making it more feasible in applied settings than an extended analogue FA.", "difficulty": 2, "id": 81}, {"domain": "F", "domainName": "Behavior Assessment", "question": "A structured descriptive assessment differs from a standard (uncontrolled) descriptive assessment primarily in that it:", "options": ["Involves no direct observation at all", "Deliberately structures or increases opportunities for specific antecedents to occur, while still observing naturally occurring consequences without a full experimental control condition", "Is identical to a functional analysis in every respect", "Relies exclusively on caregiver interviews"], "correct": 1, "explanation": "A structured descriptive assessment manipulates the presentation or timing of antecedents to increase observation opportunities, but unlike a functional analysis, it does not include a controlled comparison condition or manipulate consequences.", "difficulty": 3, "id": 82}, {"domain": "F", "domainName": "Behavior Assessment", "question": "During a standard functional analysis, the 'play' or 'control' condition typically provides continuous access to preferred items/attention and includes no demands. This condition is included primarily to:", "options": ["Serve as a comparison condition against which elevated responding in test conditions can be evaluated", "Function as the primary test condition for automatic reinforcement", "Replace the need for a preference assessment", "Increase the overall length of the session only"], "correct": 0, "explanation": "The play/control condition provides a low-problem-behavior baseline for comparison; elevated responding in a test condition (e.g., attention, demand) relative to control suggests that condition's variables maintain the behavior.", "difficulty": 3, "id": 83}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "Providing the most intrusive prompt necessary first, then systematically reducing prompt intensity across trials as the learner demonstrates independence, describes a:", "options": ["Least-to-most prompting hierarchy", "Most-to-least prompting hierarchy", "Time-delay procedure", "Graduated guidance used alone"], "correct": 1, "explanation": "A most-to-least prompting hierarchy starts with the most intrusive/supportive prompt level and fades to less intrusive levels as skills are acquired, which is often used to minimize errors during initial acquisition.", "difficulty": 1, "id": 84}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "Breaking a complex skill (e.g., handwashing) down into a sequence of smaller, teachable steps is called a:", "options": ["Task analysis", "Shaping", "Functional analysis", "Response class definition"], "correct": 0, "explanation": "A task analysis breaks a complex behavior chain into a sequence of discrete, teachable component steps, which is foundational to chaining procedures.", "difficulty": 1, "id": 85}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "A teacher waits the same fixed amount of time (e.g., always 4 seconds) between presenting the SD and delivering a prompt, from the very start of teaching. This describes:", "options": ["Progressive time delay", "Constant time delay", "Graduated guidance", "Most-to-least prompting"], "correct": 1, "explanation": "Constant time delay uses the same fixed delay interval throughout instruction, whereas progressive time delay gradually and systematically increases the delay across trials or sessions.", "difficulty": 2, "id": 86}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "Preventing access to the sensory consequence believed to maintain automatically reinforced behavior (e.g., having a client wear gloves to reduce the tactile sensation of skin-picking) is an example of:", "options": ["Response cost", "Sensory extinction", "Differential reinforcement of other behavior (DRO)", "Overcorrection"], "correct": 1, "explanation": "Sensory extinction blocks or masks the automatic sensory consequence that maintains a behavior, so the response no longer produces its reinforcing sensory outcome.", "difficulty": 2, "id": 87}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "A structured training method involving instructions/modeling, rehearsal, and feedback with repeated practice — commonly used to train staff or caregivers to implement a procedure with fidelity — is called:", "options": ["Behavioral skills training (BST)", "Discrete trial training (DTT)", "Natural environment training (NET)", "Errorless learning"], "correct": 0, "explanation": "Behavioral skills training (BST) combines instruction, modeling, rehearsal, and performance feedback and is a well-supported method for training implementers to competently perform a procedure.", "difficulty": 2, "id": 88}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "A teaching arrangement designed to prevent errors from occurring during acquisition, often combining a most-to-least prompt hierarchy with a stimulus prompt that is gradually removed, is best described as:", "options": ["Errorless learning", "Extinction burst management", "Behavioral contrast reduction", "Response generalization training"], "correct": 0, "explanation": "Errorless learning procedures are designed to minimize incorrect responding during acquisition by carefully controlling prompts and stimulus support from the outset of teaching.", "difficulty": 3, "id": 89}, {"domain": "G", "domainName": "Behavior-Change Procedures", "question": "A learner engages in escape-maintained problem behavior when demands are presented. The practitioner continues to present the demand and physically guides completion of the task despite the problem behavior, withholding escape contingent on that behavior. This procedure is best classified as:", "options": ["Sensory extinction", "Escape extinction", "Differential reinforcement of other behavior (DRO)", "Noncontingent reinforcement"], "correct": 1, "explanation": "Escape extinction withholds the escape/avoidance consequence that previously reinforced problem behavior, often paired with continued demand presentation (and sometimes physical guidance) until compliance occurs.", "difficulty": 3, "id": 90}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "Asking clients, caregivers, or other stakeholders whether the goals, procedures, and outcomes of an intervention are acceptable and meaningful is an assessment of the intervention's:", "options": ["Internal validity", "Social validity", "Treatment fidelity", "Interobserver agreement"], "correct": 1, "explanation": "Social validity concerns the acceptability and meaningfulness of an intervention's goals, procedures, and outcomes to the people affected by it — a concept central to Wolf's classic framework.", "difficulty": 1, "id": 91}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "An intervention is selected because it directly addresses the identified function of the behavior (e.g., teaching a mand to replace escape-maintained behavior), rather than simply targeting the behavior's form or topography. This exemplifies:", "options": ["A topography-based intervention", "A function-based intervention", "A punishment-based intervention", "An automatic-reinforcement-based intervention"], "correct": 1, "explanation": "Function-based interventions are derived from the results of a functional assessment and directly address the variables maintaining the behavior, generally producing more durable outcomes than interventions based solely on the behavior's form.", "difficulty": 2, "id": 92}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "'Contextual fit' in selecting an intervention refers to the degree to which the intervention:", "options": ["Is the least expensive option available", "Matches the values, skills, resources, and constraints of the people who will implement it in a given setting", "Has been published in a peer-reviewed journal", "Uses only positive reinforcement, regardless of setting"], "correct": 1, "explanation": "Contextual fit describes how well an intervention aligns with the implementers' skills, values, resources, and the practical constraints of the setting where it will be carried out — a strong predictor of successful, sustained implementation.", "difficulty": 2, "id": 93}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "A behavior analyst is deciding among several evidence-based interventions for the same target behavior. After evaluating relative effectiveness and restrictiveness, which additional factor is most consistent with best practice in intervention selection?", "options": ["Selecting the intervention most familiar to the analyst, even if not well-suited to the setting", "The intervention's contextual fit and social validity for the specific client, family, and setting", "Whichever intervention requires the least caregiver training", "Whichever intervention was most recently used with a different client"], "correct": 1, "explanation": "Best practice in intervention selection weighs contextual fit and social validity for the specific case alongside effectiveness and restrictiveness, rather than defaulting to analyst familiarity or convenience.", "difficulty": 3, "id": 94}, {"domain": "H", "domainName": "Selecting & Implementing Interventions", "question": "After an intervention has produced stable, socially significant improvement and data support that gains are being maintained over time, best practice in service planning suggests the behavior analyst should:", "options": ["Continue services indefinitely at the same intensity regardless of progress", "Begin planning to fade service intensity and/or transition or discharge, while continuing to monitor maintenance", "Immediately discontinue all services and data collection", "Increase service intensity to prevent any possible relapse"], "correct": 1, "explanation": "When data show stable, maintained progress, ethical and clinical best practice calls for planning to fade intervention intensity and/or transition services, rather than maintaining maximum intensity indefinitely or abruptly discontinuing all monitoring.", "difficulty": 3, "id": 95}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "Before beginning a supervisory relationship, the supervisor and supervisee should establish a written agreement outlining expectations, requirements, and responsibilities. This is commonly called a:", "options": ["Behavior intervention plan", "Supervision contract/agreement", "Informed consent form for services", "Treatment fidelity checklist"], "correct": 1, "explanation": "A supervision contract (or agreement) documents the expectations, requirements, and responsibilities of both supervisor and supervisee at the outset of the supervisory relationship.", "difficulty": 1, "id": 96}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "A supervisor trains a new RBT to implement a discrete-trial procedure using instructions, modeling, rehearsal with the trainee, and performance feedback until a mastery criterion is met. This training approach is:", "options": ["Behavioral skills training (BST)", "Passive observation only", "Lecture-only training", "Self-directed reading"], "correct": 0, "explanation": "This sequence — instruction, modeling, rehearsal, and feedback — is the defining structure of behavioral skills training (BST), a well-supported staff/caregiver training method.", "difficulty": 2, "id": 97}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "In a pyramidal ('train-the-trainer') supervision model, a BCBA trains a small group of senior staff to competently deliver a procedure, and those staff then train additional staff. A key risk to monitor in this model is that:", "options": ["It is never an appropriate model to use", "Treatment integrity may drift as training passes through successive 'generations' of trainers, so ongoing fidelity checks are needed", "It eliminates the need for any further supervision", "It can only be used with BCBAs, never with RBTs"], "correct": 1, "explanation": "Pyramidal training can efficiently scale staff training, but procedural fidelity can degrade with each additional 'generation' of trainers, so periodic fidelity checks back to the original standard are important.", "difficulty": 2, "id": 98}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "A supervisor wants to evaluate whether a supervisee has met a specific competency (e.g., conducting a preference assessment) rather than relying on a global overall impression. Best practice suggests using:", "options": ["A single end-of-year subjective rating", "A specific, criterion-referenced competency checklist tied to observable performance", "Peer votes among other trainees", "No formal evaluation, since supervision is inherently informal"], "correct": 1, "explanation": "Objective, criterion-referenced competency assessments tied to specific observable behaviors provide more valid and actionable feedback than global subjective impressions.", "difficulty": 3, "id": 99}, {"domain": "I", "domainName": "Personnel Supervision & Management", "question": "A supervisee repeatedly fails to meet agreed-upon performance expectations despite feedback and additional behavioral skills training. Consistent with an organizational behavior management approach, the supervisor's next step should generally be to:", "options": ["Immediately terminate the supervisee without further analysis", "Conduct a more thorough performance/functional assessment of possible barriers (e.g., unclear expectations, competing contingencies, a skill vs. performance deficit) before deciding on further action", "Assume the supervisee is simply unmotivated and take no further action", "Increase the supervisee's caseload to compensate for the performance gap"], "correct": 1, "explanation": "An OBM approach calls for identifying the actual barrier (skill deficit vs. performance/motivational deficit, environmental obstacles, unclear expectations) through assessment before deciding on further training, environmental changes, or other action.", "difficulty": 3, "id": 100}];
+
+const DOMAIN_ORDER = ["A","B","C","D","E","F","G","H","I"];
+const DOMAIN_NAMES = {};
+DOMAIN_ORDER.forEach(d => {
+  const q = QUESTION_BANK.find(q => q.domain === d);
+  DOMAIN_NAMES[d] = q ? q.domainName : d;
+});
+const DIFF_LABELS = { 1: 'Easy', 2: 'Medium', 3: 'Hard' };
+
+// ---- Persistent (session-lifetime) learner state ----
+function freshDomainState() {
+  const s = {};
+  DOMAIN_ORDER.forEach(d => s[d] = { difficulty: 2, attempted: 0, correct: 0 });
+  return s;
+}
+let domainState = freshDomainState();
+let missedQuestionIds = new Set();
+
+// ---- Setup-screen selection state ----
+let setupSelectedDomains = new Set(DOMAIN_ORDER);
+
+// ---- Active quiz runtime state ----
+let quiz = null;
+
+// ===== Supabase-backed accounts =====
+// These two values come from your Supabase project (Project Settings -> API).
+// The anon key is a public key by design -- Row Level Security on the `progress`
+// table (set up via the SQL in the setup instructions) is what actually keeps
+// each account's data private, not secrecy of this key.
+const SUPABASE_URL = 'https://lnkpihjqwnzclydealca.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_sPOcYMeU-cBAdKxMgnQkXA_G1gBS1vK';
+const SUPABASE_CONFIGURED = !SUPABASE_URL.includes('YOUR_SUPABASE') && !SUPABASE_ANON_KEY.includes('YOUR_SUPABASE');
+
+// auth = null while the auth screen is showing and no choice has been made yet.
+// Once resolved: { mode: 'guest' } or { mode: 'account', userId, email, displayName, accessToken, hasRow }
+let auth = null;
+let saveTimer = null;
+
+async function supabaseFetch(path, options) {
+  const res = await fetch(`${SUPABASE_URL}${path}`, {
+    ...options,
+    headers: {
+      'apikey': SUPABASE_ANON_KEY,
+      'Content-Type': 'application/json',
+      ...(options && options.headers ? options.headers : {})
+    }
+  });
+  let body = null;
+  try { body = await res.json(); } catch (e) { /* empty body is fine */ }
+  if (!res.ok) {
+    const message = (body && (body.error_description || body.msg || body.message || body.error)) || `Request failed (${res.status})`;
+    throw new Error(message);
+  }
+  return body;
+}
+
+async function supabaseSignUp(email, password, displayName) {
+  return supabaseFetch('/auth/v1/signup', {
+    method: 'POST',
+    body: JSON.stringify({ email, password, data: { display_name: displayName } })
+  });
+}
+
+async function supabaseLogIn(email, password) {
+  return supabaseFetch('/auth/v1/token?grant_type=password', {
+    method: 'POST',
+    body: JSON.stringify({ email, password })
+  });
+}
+
+async function fetchProgressRow(userId, accessToken) {
+  const rows = await supabaseFetch(`/rest/v1/progress?user_id=eq.${userId}&select=*`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${accessToken}` }
+  });
+  return (rows && rows.length > 0) ? rows[0] : null;
+}
+
+async function createProgressRow(userId, accessToken, state, missedIds) {
+  return supabaseFetch('/rest/v1/progress', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${accessToken}`, Prefer: 'return=representation' },
+    body: JSON.stringify({
+      user_id: userId,
+      domain_state: state,
+      missed_question_ids: Array.from(missedIds),
+      updated_at: new Date().toISOString()
+    })
+  });
+}
+
+async function updateProgressRow(userId, accessToken, state, missedIds) {
+  return supabaseFetch(`/rest/v1/progress?user_id=eq.${userId}`, {
+    method: 'PATCH',
+    headers: { Authorization: `Bearer ${accessToken}` },
+    body: JSON.stringify({
+      domain_state: state,
+      missed_question_ids: Array.from(missedIds),
+      updated_at: new Date().toISOString()
+    })
+  });
+}
+
+function scheduleSaveProgress() {
+  if (!auth || auth.mode !== 'account') return;
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => { saveProgressNow().catch(err => console.error('Save failed:', err)); }, 400);
+}
+
+async function saveProgressNow() {
+  if (!auth || auth.mode !== 'account') return;
+  if (auth.hasRow) {
+    await updateProgressRow(auth.userId, auth.accessToken, domainState, missedQuestionIds);
+  } else {
+    await createProgressRow(auth.userId, auth.accessToken, domainState, missedQuestionIds);
+    auth.hasRow = true;
+  }
+}
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ===== Mastery calculations =====
+function masteryPercent(domain) {
+  const ds = domainState[domain];
+  if (ds.attempted === 0) return null;
+  const acc = ds.correct / ds.attempted;
+  const diffComponent = (ds.difficulty - 1) / 2; // 0, 0.5, 1
+  const pct = Math.round((acc * 0.6 + diffComponent * 0.4) * 100);
+  return Math.max(0, Math.min(100, pct));
+}
+function masteryTier(pct) {
+  if (pct === null) return { label: 'Not started', key: 'muted' };
+  if (pct < 40) return { label: 'Needs practice', key: 'critical' };
+  if (pct < 75) return { label: 'Developing', key: 'warning' };
+  return { label: 'Mastered', key: 'good' };
+}
+function tierColorVar(key) {
+  return { muted: 'var(--text-muted)', critical: 'var(--critical)', warning: 'var(--warning)', good: 'var(--good)' }[key];
+}
+
+function renderMasteryDashboard(container) {
+  container.innerHTML = '';
+  DOMAIN_ORDER.forEach(d => {
+    const pct = masteryPercent(d);
+    const tier = masteryTier(pct);
+    const ds = domainState[d];
+    const displayPct = pct === null ? 0 : pct;
+    const row = document.createElement('div');
+    row.className = 'mastery-row';
+    row.innerHTML = `
+      <div class="mastery-label">
+        <span class="mastery-dot" style="background:${tierColorVar(tier.key)}"></span>
+        <span class="mastery-dname">${d} — ${DOMAIN_NAMES[d]}</span>
+        <span class="mastery-tier">${tier.label}</span>
+        <span class="mastery-pct">${pct === null ? '—' : pct + '%'}</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:${displayPct}%; background:${tierColorVar(tier.key)}"></div></div>
+      <div class="mastery-sub">${ds.attempted} answered this session · Difficulty level: ${DIFF_LABELS[ds.difficulty]}</div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+function renderMasteryStrip(activeDomain) {
+  const strip = document.getElementById('mastery-strip');
+  strip.innerHTML = '';
+  DOMAIN_ORDER.forEach(d => {
+    const pct = masteryPercent(d);
+    const tier = masteryTier(pct);
+    const col = document.createElement('div');
+    col.className = 'mastery-strip-col' + (d === activeDomain ? ' active' : '');
+    const title = `${d} — ${DOMAIN_NAMES[d]}: ${pct === null ? 'not started' : pct + '% (' + tier.label + ')'}`;
+    const barHeight = pct === null ? 4 : Math.max(4, Math.round((pct / 100) * 34));
+    col.title = title;
+    col.innerHTML = `
+      <div class="mastery-strip-bar-track">
+        <div class="mastery-strip-bar-fill" style="height:${barHeight}px; background:${tierColorVar(tier.key)}"></div>
+      </div>
+      <div class="mastery-strip-letter">${d}</div>
+    `;
+    strip.appendChild(col);
+  });
+}
+
+function refreshMissedCallout() {
+  const count = missedQuestionIds.size;
+  const text = count === 1 ? '1 question to review' : `${count} questions to review`;
+  [
+    ['missed-callout', 'missed-callout-count'],
+    ['profile-missed-callout', 'profile-missed-count']
+  ].forEach(([calloutId, countId]) => {
+    const callout = document.getElementById(calloutId);
+    if (count === 0) {
+      callout.classList.add('hidden');
+    } else {
+      callout.classList.remove('hidden');
+      document.getElementById(countId).textContent = text;
+    }
+  });
+}
+
+// ===== Tab navigation =====
+function showTab(tab) {
+  const quizContent = document.getElementById('quiz-tab-content');
+  const profileContent = document.getElementById('profile-tab-content');
+  const quizBtn = document.getElementById('tab-btn-quiz');
+  const profileBtn = document.getElementById('tab-btn-profile');
+  if (tab === 'profile') {
+    quizContent.classList.add('hidden');
+    profileContent.classList.remove('hidden');
+    quizBtn.classList.remove('active');
+    profileBtn.classList.add('active');
+    renderMasteryDashboard(document.getElementById('profile-dashboard-rows'));
+    refreshMissedCallout();
+  } else {
+    quizContent.classList.remove('hidden');
+    profileContent.classList.add('hidden');
+    profileBtn.classList.remove('active');
+    quizBtn.classList.add('active');
+  }
+}
+document.getElementById('tab-btn-quiz').addEventListener('click', () => showTab('quiz'));
+document.getElementById('tab-btn-profile').addEventListener('click', () => showTab('profile'));
+document.getElementById('results-view-profile-btn').addEventListener('click', () => showTab('profile'));
+document.getElementById('profile-retry-missed-btn').addEventListener('click', () => {
+  showTab('quiz');
+  startMissedQuiz();
+});
+
+// ===== Setup screen =====
+function renderDomainList() {
+  const container = document.getElementById('domain-list');
+  container.innerHTML = '';
+  const counts = {};
+  QUESTION_BANK.forEach(q => counts[q.domain] = (counts[q.domain] || 0) + 1);
+  DOMAIN_ORDER.forEach(d => {
+    const row = document.createElement('label');
+    row.className = 'domain-row';
+    row.innerHTML = `
+      <input type="checkbox" data-domain="${d}" ${setupSelectedDomains.has(d) ? 'checked' : ''}>
+      <span class="dname">${d} — ${DOMAIN_NAMES[d]}</span>
+      <span class="dcount">${counts[d] || 0} q</span>
+    `;
+    container.appendChild(row);
+  });
+  container.querySelectorAll('input[type=checkbox]').forEach(cb => {
+    cb.addEventListener('change', (e) => {
+      const d = e.target.getAttribute('data-domain');
+      if (e.target.checked) setupSelectedDomains.add(d);
+      else setupSelectedDomains.delete(d);
+      updateQuestionCountOptions();
+    });
+  });
+}
+
+function availableCount() {
+  return QUESTION_BANK.filter(q => setupSelectedDomains.has(q.domain)).length;
+}
+
+function updateQuestionCountOptions() {
+  const sel = document.getElementById('question-count');
+  const max = availableCount();
+  sel.innerHTML = '';
+  const options = [10, 20, 30, 50].filter(n => n <= max);
+  if (max > 0 && !options.includes(max)) options.push(max);
+  if (options.length === 0) options.push(0);
+  options.sort((a, b) => a - b);
+  options.forEach(n => {
+    const opt = document.createElement('option');
+    opt.value = n;
+    opt.textContent = n === max ? `${n} (all available)` : `${n} questions`;
+    sel.appendChild(opt);
+  });
+  sel.value = options[options.length - 1];
+  document.getElementById('start-btn').disabled = max === 0;
+}
+
+document.getElementById('select-all-btn').addEventListener('click', () => {
+  setupSelectedDomains = new Set(DOMAIN_ORDER);
+  renderDomainList();
+  updateQuestionCountOptions();
+});
+document.getElementById('select-none-btn').addEventListener('click', () => {
+  setupSelectedDomains = new Set();
+  renderDomainList();
+  updateQuestionCountOptions();
+});
+document.getElementById('start-btn').addEventListener('click', () => {
+  const count = parseInt(document.getElementById('question-count').value, 10);
+  startPracticeQuiz(setupSelectedDomains, count);
+});
+document.getElementById('retry-missed-btn').addEventListener('click', startMissedQuiz);
+document.getElementById('results-retry-missed-btn').addEventListener('click', startMissedQuiz);
+
+let resetArmed = false;
+document.getElementById('reset-progress-btn').addEventListener('click', (e) => {
+  if (!resetArmed) {
+    resetArmed = true;
+    e.target.textContent = 'Click again to confirm';
+    setTimeout(() => { resetArmed = false; e.target.textContent = 'Reset progress'; }, 3000);
+    return;
+  }
+  domainState = freshDomainState();
+  missedQuestionIds = new Set();
+  scheduleSaveProgress();
+  resetArmed = false;
+  e.target.textContent = 'Reset progress';
+  renderMasteryDashboard(document.getElementById('profile-dashboard-rows'));
+  refreshMissedCallout();
+});
+
+document.getElementById('next-btn').addEventListener('click', nextQuestion);
+document.getElementById('restart-btn').addEventListener('click', () => {
+  document.getElementById('results-screen').classList.add('hidden');
+  document.getElementById('setup-screen').classList.remove('hidden');
+  refreshMissedCallout();
+});
+document.getElementById('review-toggle-btn').addEventListener('click', (e) => {
+  const list = document.getElementById('review-list');
+  list.classList.toggle('hidden');
+  e.target.textContent = list.classList.contains('hidden') ? 'Show question review' : 'Hide question review';
+});
+
+// ===== Quiz engine =====
+function buildOptionSet(q) {
+  const optionObjs = q.options.map((text, i) => ({ text, isCorrect: i === q.correct }));
+  return shuffle(optionObjs);
+}
+
+function startPracticeQuiz(selectedDomains, count) {
+  const domainsArr = Array.from(selectedDomains);
+  const filteredPool = QUESTION_BANK.filter(q => selectedDomains.has(q.domain));
+  const domainSequence = shuffle(filteredPool).slice(0, count).map(q => q.domain);
+  const remainingByDomain = {};
+  domainsArr.forEach(d => remainingByDomain[d] = shuffle(filteredPool.filter(q => q.domain === d)));
+
+  quiz = {
+    mode: 'practice',
+    domainSequence,
+    remainingByDomain,
+    total: domainSequence.length,
+    index: 0,
+    score: 0,
+    responses: [],
+    current: null
+  };
+
+  document.getElementById('setup-screen').classList.add('hidden');
+  document.getElementById('results-screen').classList.add('hidden');
+  document.getElementById('quiz-screen').classList.remove('hidden');
+  advancePractice();
+}
+
+function pickAdaptiveQuestion(domain) {
+  const pool = quiz.remainingByDomain[domain];
+  const targetDiff = domainState[domain].difficulty;
+  let candidates = pool.filter(q => q.difficulty === targetDiff);
+  if (candidates.length === 0) {
+    const diffsAvailable = Array.from(new Set(pool.map(q => q.difficulty)));
+    diffsAvailable.sort((a, b) => Math.abs(a - targetDiff) - Math.abs(b - targetDiff));
+    const closest = diffsAvailable[0];
+    candidates = pool.filter(q => q.difficulty === closest);
+  }
+  const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+  quiz.remainingByDomain[domain] = pool.filter(q => q.id !== chosen.id);
+  return chosen;
+}
+
+function advancePractice() {
+  if (quiz.index >= quiz.total) { showResults(); return; }
+  const domain = quiz.domainSequence[quiz.index];
+  const chosen = pickAdaptiveQuestion(domain);
+  quiz.current = chosen;
+  renderQuestion(chosen);
+}
+
+function startMissedQuiz() {
+  const poolQuestions = shuffle(QUESTION_BANK.filter(q => missedQuestionIds.has(q.id)));
+  if (poolQuestions.length === 0) return;
+  quiz = {
+    mode: 'missed',
+    queue: poolQuestions,
+    total: poolQuestions.length,
+    index: 0,
+    score: 0,
+    responses: [],
+    current: null
+  };
+  document.getElementById('setup-screen').classList.add('hidden');
+  document.getElementById('results-screen').classList.add('hidden');
+  document.getElementById('quiz-screen').classList.remove('hidden');
+  advanceMissed();
+}
+
+function advanceMissed() {
+  if (quiz.index >= quiz.total) { showResults(); return; }
+  quiz.current = quiz.queue[quiz.index];
+  renderQuestion(quiz.current);
+}
+
+function renderQuestion(q) {
+  quiz.answered = false;
+  quiz.currentOptions = buildOptionSet(q);
+
+  renderMasteryStrip(q.domain);
+
+  document.getElementById('progress-fill').style.width = `${(quiz.index / quiz.total) * 100}%`;
+  document.getElementById('quiz-progress-text').textContent =
+    (quiz.mode === 'missed' ? 'Review ' : '') + `Question ${quiz.index + 1} of ${quiz.total}`;
+  document.getElementById('quiz-score-text').textContent = `Score: ${quiz.score}/${quiz.index}`;
+  document.getElementById('quiz-domain-tag').textContent = `${q.domain} — ${q.domainName}`;
+  document.getElementById('quiz-diff-badge').textContent = DIFF_LABELS[q.difficulty];
+  document.getElementById('quiz-diff-badge').className = `diff-badge diff-${q.difficulty}`;
+  document.getElementById('quiz-question').textContent = q.question;
+
+  const optionsContainer = document.getElementById('quiz-options');
+  optionsContainer.innerHTML = '';
+  const letters = ['A', 'B', 'C', 'D'];
+  quiz.currentOptions.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.innerHTML = `<span class="letter">${letters[i]}.</span><span>${opt.text}</span>`;
+    btn.addEventListener('click', () => selectAnswer(opt, btn));
+    optionsContainer.appendChild(btn);
+  });
+
+  document.getElementById('quiz-feedback').classList.add('hidden');
+  document.getElementById('next-btn').classList.add('hidden');
+}
+
+function selectAnswer(opt, btnEl) {
+  if (quiz.answered) return;
+  quiz.answered = true;
+  const q = quiz.current;
+  const isCorrect = opt.isCorrect;
+  if (isCorrect) quiz.score++;
+
+  const ds = domainState[q.domain];
+  ds.attempted++;
+  if (isCorrect) {
+    ds.correct++;
+    ds.difficulty = Math.min(3, ds.difficulty + 1);
+    missedQuestionIds.delete(q.id);
+  } else {
+    ds.difficulty = Math.max(1, ds.difficulty - 1);
+    missedQuestionIds.add(q.id);
+  }
+  scheduleSaveProgress();
+
+  const buttons = document.querySelectorAll('#quiz-options .option');
+  buttons.forEach(b => b.disabled = true);
+  buttons.forEach((b, i) => {
+    const optObj = quiz.currentOptions[i];
+    if (optObj.isCorrect) b.classList.add('correct');
+    else if (b === btnEl) b.classList.add('incorrect');
+  });
+
+  const fb = document.getElementById('quiz-feedback');
+  fb.classList.remove('hidden');
+  fb.className = 'feedback ' + (isCorrect ? 'correct-fb' : 'incorrect-fb');
+  fb.innerHTML = `
+    <div class="fb-title ${isCorrect ? 'good-text' : 'bad-text'}">${isCorrect ? '✓ Correct' : '✗ Not quite'}</div>
+    <p>${q.explanation}</p>
+  `;
+
+  document.getElementById('quiz-score-text').textContent = `Score: ${quiz.score}/${quiz.index + 1}`;
+  document.getElementById('next-btn').classList.remove('hidden');
+  document.getElementById('next-btn').textContent = (quiz.index + 1 === quiz.total) ? 'See results' : 'Next question';
+
+  renderMasteryStrip(q.domain);
+
+  const correctOpt = quiz.currentOptions.find(o => o.isCorrect);
+  quiz.responses.push({
+    id: q.id,
+    question: q.question,
+    domain: q.domain,
+    domainName: q.domainName,
+    difficulty: q.difficulty,
+    chosenText: opt.text,
+    correctText: correctOpt.text,
+    isCorrect: isCorrect,
+    explanation: q.explanation
+  });
+}
+
+function nextQuestion() {
+  quiz.index++;
+  if (quiz.mode === 'practice') advancePractice();
+  else advanceMissed();
+}
+
+function showResults() {
+  document.getElementById('quiz-screen').classList.add('hidden');
+  document.getElementById('results-screen').classList.remove('hidden');
+
+  const total = quiz.responses.length;
+  const pct = total > 0 ? Math.round((quiz.score / total) * 100) : 0;
+  document.getElementById('result-pct').textContent = `${pct}%`;
+  document.getElementById('result-sub').textContent = `${quiz.score} of ${total} correct`;
+
+  const byDomain = {};
+  quiz.responses.forEach(r => {
+    if (!byDomain[r.domain]) byDomain[r.domain] = { correct: 0, total: 0, name: r.domainName };
+    byDomain[r.domain].total++;
+    if (r.isCorrect) byDomain[r.domain].correct++;
+  });
+
+  const breakdownEl = document.getElementById('domain-breakdown');
+  breakdownEl.innerHTML = '';
+  DOMAIN_ORDER.filter(d => byDomain[d]).forEach(d => {
+    const info = byDomain[d];
+    const dpct = Math.round((info.correct / info.total) * 100);
+    const row = document.createElement('div');
+    row.className = 'breakdown-row';
+    row.innerHTML = `
+      <div class="breakdown-label">
+        <span class="dname">${d} — ${info.name}</span>
+        <span class="dpct">${info.correct}/${info.total} (${dpct}%)</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:${dpct}%"></div></div>
+    `;
+    breakdownEl.appendChild(row);
+  });
+
+  const retryBtn = document.getElementById('results-retry-missed-btn');
+  if (missedQuestionIds.size > 0) {
+    retryBtn.classList.remove('hidden');
+    retryBtn.textContent = missedQuestionIds.size === 1
+      ? 'Retry the 1 question you\'ve missed'
+      : `Retry the ${missedQuestionIds.size} questions you've missed`;
+  } else {
+    retryBtn.classList.add('hidden');
+  }
+
+  const reviewEl = document.getElementById('review-list');
+  reviewEl.innerHTML = '';
+  reviewEl.classList.add('hidden');
+  document.getElementById('review-toggle-btn').textContent = 'Show question review';
+  quiz.responses.forEach((r, i) => {
+    const item = document.createElement('div');
+    item.className = 'review-item';
+    item.innerHTML = `
+      <div class="review-q"><strong>${i + 1}.</strong> ${r.question}</div>
+      ${!r.isCorrect ? `<div class="review-ans wrong">Your answer: ${r.chosenText}</div>` : ''}
+      <div class="review-ans right">Correct answer: ${r.correctText}</div>
+      <div class="review-exp">${r.explanation}</div>
+    `;
+    reviewEl.appendChild(item);
+  });
+
+  refreshMissedCallout();
+}
+
+// ===== Auth screen =====
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : String(str);
+  return div.innerHTML;
+}
+
+function mergeDomainState(saved) {
+  const merged = freshDomainState();
+  if (saved && typeof saved === 'object') {
+    DOMAIN_ORDER.forEach(d => {
+      if (saved[d] && typeof saved[d].difficulty === 'number') {
+        merged[d] = {
+          difficulty: Math.min(3, Math.max(1, saved[d].difficulty)),
+          attempted: Number(saved[d].attempted) || 0,
+          correct: Number(saved[d].correct) || 0
+        };
+      }
+    });
+  }
+  return merged;
+}
+
+function showAuthError(msg) {
+  const el = document.getElementById('auth-error');
+  el.textContent = msg;
+  el.classList.remove('hidden');
+}
+function clearAuthError() {
+  document.getElementById('auth-error').classList.add('hidden');
+}
+
+let authScreenMode = 'signup';
+function setAuthScreenMode(mode) {
+  authScreenMode = mode;
+  document.getElementById('auth-toggle-signup').classList.toggle('active', mode === 'signup');
+  document.getElementById('auth-toggle-login').classList.toggle('active', mode === 'login');
+  document.getElementById('field-display-name').style.display = mode === 'signup' ? 'block' : 'none';
+  document.getElementById('auth-submit-btn').textContent = mode === 'signup' ? 'Sign up' : 'Log in';
+  document.getElementById('auth-note').textContent = mode === 'signup'
+    ? "Creates a real account (secured by Supabase) so your mastery progress and missed-question list follow you across devices. You'll need to log in again each time you reopen this app — we don't keep you signed in between visits."
+    : "Logs in to your existing account and loads your saved progress. You'll need to log in again each time you reopen this app.";
+  clearAuthError();
+}
+document.getElementById('auth-toggle-signup').addEventListener('click', () => setAuthScreenMode('signup'));
+document.getElementById('auth-toggle-login').addEventListener('click', () => setAuthScreenMode('login'));
+
+function enterApp() {
+  document.getElementById('auth-screen').classList.add('hidden');
+  document.getElementById('app-content').classList.remove('hidden');
+  renderAccountBar();
+  renderDomainList();
+  updateQuestionCountOptions();
+  renderMasteryDashboard(document.getElementById('profile-dashboard-rows'));
+  refreshMissedCallout();
+}
+
+function backToAuthScreen() {
+  document.getElementById('app-content').classList.add('hidden');
+  document.getElementById('auth-screen').classList.remove('hidden');
+  clearAuthError();
+}
+
+function logOut() {
+  auth = null;
+  domainState = freshDomainState();
+  missedQuestionIds = new Set();
+  quiz = null;
+  document.getElementById('quiz-screen').classList.add('hidden');
+  document.getElementById('results-screen').classList.add('hidden');
+  document.getElementById('setup-screen').classList.remove('hidden');
+  backToAuthScreen();
+}
+
+function renderAccountBar() {
+  const bar = document.getElementById('account-bar');
+  if (!auth) { bar.innerHTML = ''; return; }
+  if (auth.mode === 'guest') {
+    bar.innerHTML = `
+      <span class="account-status">Browsing as <strong>Guest</strong> — progress won't be saved</span>
+      <button id="account-bar-signin-btn" type="button">Sign in to save progress</button>
+    `;
+    document.getElementById('account-bar-signin-btn').addEventListener('click', backToAuthScreen);
+  } else {
+    bar.innerHTML = `
+      <span class="account-status">Signed in as <strong>${escapeHtml(auth.displayName)}</strong></span>
+      <button id="account-bar-logout-btn" type="button">Log out</button>
+    `;
+    document.getElementById('account-bar-logout-btn').addEventListener('click', logOut);
+  }
+}
+
+document.getElementById('continue-guest-btn').addEventListener('click', () => {
+  auth = { mode: 'guest' };
+  enterApp();
+});
+
+document.getElementById('auth-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  clearAuthError();
+  const submitBtn = document.getElementById('auth-submit-btn');
+  const email = document.getElementById('auth-email').value.trim();
+  const password = document.getElementById('auth-password').value;
+  const displayNameInput = document.getElementById('auth-display-name').value.trim();
+
+  if (!SUPABASE_CONFIGURED) {
+    showAuthError("Account sign-in isn't connected yet — continue as guest for now, or finish the Supabase setup to enable accounts.");
+    return;
+  }
+  if (!email || !password) {
+    showAuthError('Please enter an email and password.');
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = authScreenMode === 'signup' ? 'Signing up…' : 'Logging in…';
+
+  try {
+    if (authScreenMode === 'signup') {
+      const displayName = displayNameInput || email.split('@')[0];
+      const result = await supabaseSignUp(email, password, displayName);
+      if (!result || !result.access_token) {
+        showAuthError('Account created, but email confirmation appears to be required. Turn off "Confirm email" in your Supabase project (Authentication → Providers → Email), then log in below.');
+        return;
+      }
+      auth = { mode: 'account', userId: result.user.id, email, displayName, accessToken: result.access_token, hasRow: false };
+      await createProgressRow(auth.userId, auth.accessToken, domainState, missedQuestionIds);
+      auth.hasRow = true;
+      enterApp();
+    } else {
+      const result = await supabaseLogIn(email, password);
+      const displayName = (result.user.user_metadata && result.user.user_metadata.display_name) || email.split('@')[0];
+      auth = { mode: 'account', userId: result.user.id, email, displayName, accessToken: result.access_token, hasRow: false };
+      const row = await fetchProgressRow(auth.userId, auth.accessToken);
+      if (row) {
+        domainState = mergeDomainState(row.domain_state);
+        missedQuestionIds = new Set(row.missed_question_ids || []);
+        auth.hasRow = true;
+      } else {
+        domainState = freshDomainState();
+        missedQuestionIds = new Set();
+        auth.hasRow = false;
+      }
+      enterApp();
+    }
+  } catch (err) {
+    showAuthError((err && err.message) || 'Something went wrong. Please try again.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = authScreenMode === 'signup' ? 'Sign up' : 'Log in';
+  }
+});
+
+// ===== Init =====
+renderDomainList();
+updateQuestionCountOptions();
+setAuthScreenMode('signup');
+</script>
+</body>
+</html>
